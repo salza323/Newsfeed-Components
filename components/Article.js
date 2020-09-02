@@ -86,6 +86,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Diamondbacks Throw in the Towel And Sell The Farm, Again',
+    date: 'September 7th, 2020',
+    firstParagraph: `4-6-3 slide cup of coffee lineup wins 4-bagger club. Practice season wins cardinals diamond right fielder center fielder catcher hall of fame. Astroturf batting average field grounder double switch unearned run red sox. Play small ball interleague bleeder loogy bandbox sacrifice corner. Range cy young choke up bush league cubs grass butcher boy pull cheese. Small ball ground ball leather hall of fame rally, bunt first base.`,
+
+    secondParagraph: `4-6-3 slide cup of coffee lineup wins 4-bagger club. Practice season wins cardinals diamond right fielder center fielder catcher hall of fame. Astroturf batting average field grounder double switch unearned run red sox. Play small ball interleague bleeder loogy bandbox sacrifice corner. Range cy young choke up bush league cubs grass butcher boy pull cheese. Small ball ground ball leather hall of fame rally, bunt first base.`,
+
+    thirdParagraph: `4-6-3 slide cup of coffee lineup wins 4-bagger club. Practice season wins cardinals diamond right fielder center fielder catcher hall of fame. Astroturf batting average field grounder double switch unearned run red sox. Play small ball interleague bleeder loogy bandbox sacrifice corner. Range cy young choke up bush league cubs grass butcher boy pull cheese. Small ball ground ball leather hall of fame rally, bunt first base.`
   }
 ];
 
@@ -114,3 +123,54 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+function articleMaker(articleObject){
+  //div for article class
+  const article = document.createElement('div')
+  article.classList.add('article')
+
+  //h2 for tiitle
+  const title = document.createElement('h2')
+  title.textContent = articleObject.title
+  article.appendChild(title)
+
+  //p for date
+  const date = document.createElement('p')
+  date.textContent = articleObject.date
+  article.appendChild(date)
+
+  //p for para 1
+  const paragraph1 = document.createElement('p')
+  paragraph1.textContent = articleObject.firstParagraph
+  article.appendChild(paragraph1)
+
+  //p for para 2
+  const paragraph2 = document.createElement('p')
+  paragraph2.textContent = articleObject.secondParagraph
+  article.appendChild(paragraph2)
+
+  //p for para 3
+  const paragraph3 = document.createElement('p')
+  paragraph3.textContent = articleObject.thirdParagraph
+  article.appendChild(paragraph3)
+
+  //span
+  const span = document.createElement('span')
+  span.classList.add('expandButton')
+  span.textContent = '+'
+  article.appendChild(span)
+
+  // add event listener
+  span.addEventListener('click', function (event){
+    article.classList.toggle('article-open')
+  })
+
+  return article;
+}
+
+const articles = document.querySelector('.articles')
+
+data.forEach(articleObject => {
+  const articleElement = articleMaker(articleObject)
+  articles.appendChild(articleElement)
+})
