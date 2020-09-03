@@ -60,7 +60,7 @@ return menu
 
 }
 
-menuMaker(menuItems)
+const theMenu = menuMaker(menuItems)
 
 const header = document.querySelector('header')
-header.appendChild(menuMaker)
+header.appendChild(theMenu)
