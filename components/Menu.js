@@ -62,5 +62,5 @@ return menu
 
 const theMenu = menuMaker(menuItems)
 
-const header = document.querySelector('header')
+const header = document.querySelector('.header')
 header.appendChild(theMenu)
